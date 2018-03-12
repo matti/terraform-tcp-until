@@ -14,6 +14,17 @@ module "example_80" {
 #   interval  = 1
 # }
 
+module "multi_80" {
+  source = ".."
+
+  addresses = ["example.com", "google.com"]
+  port      = 80
+}
+
 output "example_80" {
   value = "${module.example_80.result}"
+}
+
+output "multi_80" {
+  value = "${module.multi_80.result}"
 }

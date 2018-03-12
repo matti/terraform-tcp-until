@@ -3,7 +3,13 @@ variable "depends_id" {
 }
 
 variable "address" {
-  type = "string"
+  type    = "string"
+  default = ""
+}
+
+variable "addresses" {
+  type    = "list"
+  default = []
 }
 
 variable "port" {
@@ -38,6 +44,7 @@ data "external" "tcp" {
 
   query = {
     address   = "${var.address}"
+    addresses = "${jsonencode(var.addresses)}"
     port      = "${var.port}"
     timeout   = "${var.timeout}"
     interval  = "${var.interval}"
