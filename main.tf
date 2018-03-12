@@ -55,3 +55,7 @@ data "external" "tcp" {
 output "result" {
   value = "${data.external.tcp.result}"
 }
+
+output "id" {
+  value = "${data.external.tcp.id}"
+}
